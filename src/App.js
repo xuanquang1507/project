@@ -6,7 +6,7 @@ import router from "./router";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App">   
       <ToastMessage/>
       <RouterProvider router={router} />
     </div>
