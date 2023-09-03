@@ -193,6 +193,7 @@ footer {
 /* styles.css */
 .search-bar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     max-width: 300px;

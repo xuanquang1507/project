@@ -29,13 +29,6 @@
       "id": 4
     },
     {
-      "image": "https://pos.nvncdn.net/556e88-134541/ps/20221017_lDPBSlqsLNsgpP3YPZyiaMx7.jpg",
-      "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.",
-      "title": "Solid Gold Petite Micropave ",
-      "price": 168,
-      "id": 6
-    },
-    {
       "image": "https://pos.nvncdn.net/556e88-134541/ps/20221017_DYkdldK2lfllSP9JHMWOHGR8.jpg",
       "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
       "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
@@ -53,7 +46,7 @@
       "image": "https://pos.nvncdn.net/556e88-134541/ps/20221017_C9AHT7iDEwHOcjxVhxAQH3Qk.jpg",
       "description": "Your perfect pack for everyday use and walks in the forest",
       "title": "Quần Jogger Nam Trơn QJ-005",
-      "price": 555,
+      "price": 559,
       "id": 11
     },
     {
@@ -69,20 +62,6 @@
       "title": "Mens Cotton Jacket",
       "price": 55.99,
       "id": 13
-    },
-    {
-      "image": "https://pos.nvncdn.net/556e88-134541/ps/20221017_ZSTuEGrq5iNH7eh9We9rIxLi.jpg",
-      "description": "The color could be slightly different between on the screen and in practice.",
-      "title": "Mens Casual Slim Fit",
-      "price": 15.99,
-      "id": 14
-    },
-    {
-      "image": "https://pos.nvncdn.net/556e88-134541/ps/20221017_lDPBSlqsLNsgpP3YPZyiaMx7.jpg",
-      "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.",
-      "title": "Solid Gold Petite Micropave ",
-      "price": 168,
-      "id": 15
     },
     {
       "image": "https://pos.nvncdn.net/556e88-134541/ps/20221017_DYkdldK2lfllSP9JHMWOHGR8.jpg",
@@ -102,14 +81,14 @@
       "image": "https://pos.nvncdn.net/556e88-134541/ps/20221017_ZSTuEGrq5iNH7eh9We9rIxLi.jpg",
       "description": "The color could be slightly different between on the screen and in practice.",
       "title": "Mens Casual Slim Fit",
-      "price": 15.99,
+      "price": 15.98,
       "id": 18
     },
     {
       "image": "https://pos.nvncdn.net/556e88-134541/ps/20221017_lDPBSlqsLNsgpP3YPZyiaMx7.jpg",
       "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.",
       "title": "Solid Gold Petite Micropave ",
-      "price": 162,
+      "price": 163,
       "id": 19
     }
   ],

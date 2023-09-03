@@ -8,6 +8,7 @@ import ProductModalContext from "../../contexts/ProductModalContext";
 
 
 export default function ProductTableRow({row,refetch}) {
+  
     const {
       isOpenModal,
       setIsOpenModal,
@@ -20,6 +21,7 @@ export default function ProductTableRow({row,refetch}) {
         // call api delete
         await ProductApi.deleteByID(row.id);
         refetch();
+        
     };
 
     const handleEditProduct = () => {

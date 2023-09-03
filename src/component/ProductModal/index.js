@@ -37,8 +37,7 @@ export default function ProductModal() {
     setInitDataModal,
     handleSearch,
   } = React.useContext(ProductModalContext);
-  const {pagingData, setPagingData} = React.useContext(ProductPagingContext);
-console.log("AVC", initDataModal);
+  const {pagingData, setPagingData,refetch} = React.useContext(ProductPagingContext);
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -67,10 +66,15 @@ console.log("AVC", initDataModal);
         });
       }
       formik.resetForm();
-      setPagingData({
-        ...pagingData,
-        currentPage: 0,
-      });
+      if(pagingData.currentPage === 0 || values.id){
+        refetch();
+      }else{
+
+        setPagingData({
+          ...pagingData,
+          currentPage: 0,
+        });
+      }
     },
   });
 

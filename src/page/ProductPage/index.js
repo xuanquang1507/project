@@ -56,7 +56,7 @@ const ProductPage = (props) => {
 
   return (
     <>
-      <ProductPagingContext.Provider value={{ pagingData, setPagingData }}>
+      <ProductPagingContext.Provider value={{ pagingData, setPagingData, refetch: getPagingProduct }}>
         <ProductModalContext.Provider
           value={{
             isOpenModal,
