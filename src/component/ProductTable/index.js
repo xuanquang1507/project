@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -9,7 +9,15 @@ import Paper from "@mui/material/Paper";
 import ProductTableRow from "../ProductTableRow";
 import styles from "./ProductTable.module.css";
 import { TablePagination } from "@mui/material";
+import ProductPagingContext from "../../contexts/ProductPagingContext";
 export default function ProductTable({ data, refetch }) {
+  const {pagingData, setPagingData} = useContext(ProductPagingContext);
+  const handleChanePage = (event, newPage) => {
+    setPagingData({
+      ...pagingData,
+      currentPage: newPage,
+    })
+  }
   return (
     <>
       <TableContainer component={Paper}>
@@ -32,11 +40,10 @@ export default function ProductTable({ data, refetch }) {
         <TablePagination
           rowsPerPageOptions={[5]}
           component="div"
-          count={data.length}
-          rowsPerPage={5}
-          page={0}
-          onPageChange={() => {}}
-          onRowsPerPageChange={() => {}}
+          count={pagingData.total}
+          rowsPerPage={pagingData.limit}
+          page={pagingData.currentPage}
+          onPageChange={handleChanePage}
         />
       </TableContainer>
     </>

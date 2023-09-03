@@ -42,3 +42,15 @@
   margin-top: 10px !important;
 }
 
+@media (min-width: 1023px) {
+
+  /* CSS dành cho màn hình từ 768px đến 1023px */
+  .nonePc {
+      display: none;
+  }
+
+  .blockPc {
+      display: block;
+  }
+}
+

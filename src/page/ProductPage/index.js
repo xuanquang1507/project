@@ -6,79 +6,105 @@ import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import ProductModalContext from "../../contexts/ProductModalContext";
 import ProductModal from "../../component/ProductModal";
+import ProductPagingContext from "../../contexts/ProductPagingContext";
 
 const ProductPage = (props) => {
   const [listProduct, setListProduct] = useState([]);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [initDataModal, setInitDataModal] = useState({});
+  const [pagingData, setPagingData] = useState({
+    currentPage: 0,
+    total: 0,
+    limit: 5,
+    search: "",
+  });
   const ref = useRef(null);
   const handleSearch = async () => {
-    console.log(ref.current.value);
-    await fetchListProduct(
-      ...(ref.current.value?.trim() && [
-        {
-          params: {
-            title: ref.current.value?.trim(),
-          },
-        },
-      ])
-    );
+    setPagingData({
+      ...pagingData,
+      currentPage: 0,
+    })
   };
   const fetchListProduct = async (config = {}) => {
     const response = await ProductApi.getAll(config);
     setListProduct(response.data);
   };
+
+  const getPagingProduct = async () => {
+    const response = await ProductApi.getPaging(
+      pagingData.limit,
+      pagingData.currentPage + 1, 
+      ref.current.value?.trim() && {title: ref.current.value?.trim()},
+      
+      );
+      const {data, headers} = response;
+      setPagingData({
+        ...pagingData,
+        total: Number(headers["X-Total-Count"] ?? headers["x-total-count"]),
+      })
+
+      setListProduct(data)
+    };
   useEffect(() => {
-    fetchListProduct();
-  }, []);
+    getPagingProduct();
+  }, [pagingData.currentPage]);
 
   const handleAddButton = () => {
     setInitDataModal({});
     setIsOpenModal(true);
-  }
-
+  };
 
   return (
     <>
-      <ProductModalContext.Provider value={{isOpenModal, setIsOpenModal, initDataModal, setInitDataModal, handleSearch}}>
-        <ProductModal />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginBottom:"20px"
+      <ProductPagingContext.Provider value={{ pagingData, setPagingData }}>
+        <ProductModalContext.Provider
+          value={{
+            isOpenModal,
+            setIsOpenModal,
+            initDataModal,
+            setInitDataModal,
+            handleSearch,
           }}
         >
-          <Paper
-            component="form"
-            sx={{
-              p: "2px 4px",
+          <ProductModal />
+          <div
+            style={{
               display: "flex",
-              alignItems: "center",
-              width: 400,// Adding margin to the Paper component
+              justifyContent: "space-between",
+              marginBottom: "20px",
             }}
           >
-            <InputBase
-              inputRef={ref}
-              sx={{ ml: 1, flex: 1 }}
-              placeholder="Search"
-              inputProps={{ "aria-label": "Search" }}
-            />
-            <IconButton
-              type="button"
-              sx={{ p: "10px" }}
-              aria-label="search"
-              onClick={handleSearch}
+            <Paper
+              component="form"
+              sx={{
+                p: "2px 4px",
+                display: "flex",
+                alignItems: "center",
+                width: 400, // Adding margin to the Paper component
+              }}
             >
-              <SearchIcon />
-            </IconButton>
-          </Paper>
-          <Button variant="contained" onClick={handleAddButton}>
-            <AddIcon />
-          </Button>
-        </div>
-        <ProductTable data={listProduct} refetch={fetchListProduct} />
-      </ProductModalContext.Provider>
+              <InputBase
+                inputRef={ref}
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Search"
+                inputProps={{ "aria-label": "Search" }}
+              />
+              <IconButton
+                type="button"
+                sx={{ p: "10px" }}
+                aria-label="search"
+                onClick={handleSearch}
+              >
+                <SearchIcon />
+              </IconButton>
+            </Paper>
+            <Button variant="contained" onClick={handleAddButton}>
+              <AddIcon />
+            </Button>
+          </div>
+          <ProductTable data={listProduct} refetch={fetchListProduct} />
+        </ProductModalContext.Provider>
+      </ProductPagingContext.Provider>
     </>
   );
 };

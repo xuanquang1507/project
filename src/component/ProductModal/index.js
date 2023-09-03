@@ -10,6 +10,7 @@ import ProductModalContext from "../../contexts/ProductModalContext";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import ProductApi from "../../apis/ProductApi";
+import ProductPagingContext from "../../contexts/ProductPagingContext";
 
 const validationSchema = yup.object({
   image: yup
@@ -36,7 +37,8 @@ export default function ProductModal() {
     setInitDataModal,
     handleSearch,
   } = React.useContext(ProductModalContext);
-
+  const {pagingData, setPagingData} = React.useContext(ProductPagingContext);
+console.log("AVC", initDataModal);
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -64,7 +66,11 @@ export default function ProductModal() {
           price: values.price,
         });
       }
-      await handleSearch();
+      formik.resetForm();
+      setPagingData({
+        ...pagingData,
+        currentPage: 0,
+      });
     },
   });
 

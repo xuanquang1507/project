@@ -4,8 +4,12 @@ import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search"; // Import biểu tượng tìm kiếm
 import ListItem from "./ListItem";
+import MenuIcon from '@mui/icons-material/Menu';
+import ClearIcon from '@mui/icons-material/Clear';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ProductApi from "../../../apis/ProductApi";
 import { useNavigate } from "react-router-dom";
+import styles from './ProductItem.module.css'
 
 export default function ShowItem() {
   const navigate = useNavigate();
@@ -23,6 +27,18 @@ export default function ShowItem() {
     navigate("/login");
   };
 
+  const handleClear = () => {
+    const nav = document.getElementById("menuNavMobile")
+    nav.classList.add("hidden");
+    nav.classList.remove("block");
+  }
+
+  const handleNavMobile = () => {
+    const nav = document.getElementById("menuNavMobile")
+    console.log("🚀 ~ file: index.js:36 ~ handleNavMobile ~ nav:", nav)
+    nav.classList.add("block");
+    nav.classList.remove("hidden");
+  }
   React.useEffect(() => {
     fetchListProduct();
   }, []);
@@ -30,9 +46,12 @@ export default function ShowItem() {
     <div>
       {/* Header */}
       <div className="container-fluid header">
-        <div className="row">
-          <div className="col-md-4 col-sm-4 ">
-            <div className="first-menu-index">
+        <div className="row flex-row">
+          <div className="flex-1 " >
+            <div className="menu-icon none-pc" onClick={handleNavMobile}>
+              <MenuIcon />
+            </div>
+            <div className="first-menu-index none-tablet none-mb">
               <a href="#" className="bg-slate-300">
                 {" "}
                 Nam{" "}
@@ -40,29 +59,61 @@ export default function ShowItem() {
               <a href="#"> Nữ </a>
             </div>
           </div>
-          <div className="col-md-4 col-sm-4 text-center">
-            <div className="logo">
-              <a href="#">
-                <img
+          <div className="flex-1">
+            <div className="logo-text text-center">
+                {/* <img
                   src="https://pos.nvncdn.net/556e88-134541/store/20221011_6NQfoNa67Oj0RNf5okgXoTh6.png"
                   alt="Mô tả hình ảnh"
-                />
-              </a>
+                /> */}
+                <h1>Mixmart</h1>
             </div>
           </div>
-          <div className="col-md-4 col-sm-4 text-right">
+          <div className="flex-1 text-right">
             <div className="user-cart">
               <div className="header-wrap-icon">
-                <PersonIcon className="mx-3" onClick={handleLogin} />
-                <ShoppingCartIcon />
+                  <SearchIcon className={styles.nonePc}/>
+                  <PersonIcon className="mx-3" onClick={handleLogin} />
+                  <ShoppingCartIcon />
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal menu */}
+        <div className="menu-nav-mobile active-menu-nav-mobile hidden" id="menuNavMobile" >
+          <div className="menu-nav-mobile-click-close" id="clearIcon" onClick={handleClear}>
+            <ClearIcon style={{
+              fontSize:'30px',
+              marginTop:'10px',
+              marginRight:'10px',
+            }}/>
+          </div>
+          <div className="sidebar-container ">
+            <div className="content-menu">
+              <ul>
+                <li>
+                  <a href="#" className="text-content-menu">Trang chủ</a>
+                </li>
+                <li>
+                  <a href="#" className="text-content-menu">Tin tức</a>
+                </li>
+                <li>
+                  <a href="#" className="text-content-menu">Sản phẩm</a>
+                </li>
+                <li>
+                  <a href="#" className="text-content-menu">Bộ sưu tập</a>
+                </li>
+                <li>
+                  <a href="#" className="text-content-menu"><AccountCircleIcon/> Đăng nhập</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
         <div className="container-fluid">
           <div className="row">
-            <div className="col-lg-8 col-md-12">
+            <div className="col-lg-8 col-md-12 none-tablet none-mb">
               <div className="menu-center">
                 <ul className="main-nav-new flex">
                   <li>
@@ -85,11 +136,35 @@ export default function ShowItem() {
             <div className="col-lg-4 col-md-12">
               {/* 
               Search
-              
                */}
+              <div className="search-bar none-tablet none-mb">
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm..."
+                />
+                <button>Tìm</button>
+              </div>
             </div>
           </div>
         </div>
+
+        <div className="owl-stage-outer none-pc">
+          <div className="owl-stage">
+            <div className="owl-item active">
+              <a href="#" className="owl-item__text owl-item__text1">
+                <span>Nam</span>
+              </a>
+            </div>
+          </div>
+          <div className="owl-stage">
+            <div className="owl-item active">
+              <a href="#" className="owl-item__text">
+                <span>Nữ</span>
+              </a>
+            </div>
+          </div>  
+        </div>
+        
       </div>
 
       {/* Slider */}
@@ -175,13 +250,13 @@ export default function ShowItem() {
                 </a>
               </div>
             </div>
-            <div className="col-md-3 col-sm-3 col-6 item-category-home text-center">
+            <div className="col-md-3 col-sm-3 col-6 item-category-home">
               <div className="box-category">
                 <a href="#" className="flex">
                   <div className="category-image ">
                     <img src="https://pos.nvncdn.net/556e88-134541/pc/20221017_xcwpCwZb0wkOwqHGhVTDDuWb.png" />
                   </div>
-                  <div className="category-info center">
+                  <div className="category-info">
                     <h4>Áo Sơ mi</h4>
                   </div>
                 </a>
@@ -267,7 +342,10 @@ export default function ShowItem() {
       <div className="section-main-product">
         <div className="banner-index-head">
           <div className="banner--img">
-            <img src="https://pos.nvncdn.net/556e88-134541/bn/20221017_x7JisGPgEVYcRKKANWuNTn1x.png" style={{ width: "100%" }}/>
+            <img
+              src="https://pos.nvncdn.net/556e88-134541/bn/20221017_x7JisGPgEVYcRKKANWuNTn1x.png"
+              style={{ width: "100%" }}
+            />
           </div>
         </div>
       </div>
@@ -292,7 +370,10 @@ export default function ShowItem() {
       <div className="section-main-product">
         <div className="banner-index-head">
           <div className="banner--img">
-            <img src="https://pos.nvncdn.net/556e88-134541/bn/20221017_H1V8ft5tHMMRPqWiPJowfRfB.png" style={{ width: "100%" }}/>
+            <img
+              src="https://pos.nvncdn.net/556e88-134541/bn/20221017_H1V8ft5tHMMRPqWiPJowfRfB.png"
+              style={{ width: "100%" }}
+            />
           </div>
         </div>
       </div>
