@@ -1,0 +1,347 @@
+.header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    /* Header sẽ đứng yên ở đầu trang */
+    background-color: #ffffff;
+    /* Màu nền của header */
+    z-index: 100;
+    /* Để đảm bảo header hiển thị trên các phần khác của trang */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.first-menu-index a {
+    padding: 12px 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    min-width: 100px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-width: 133px;
+    margin-top: 5px;
+}
+
+.logo-text{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.menu-icon{
+    display: inline-block;
+    text-transform: uppercase;
+    min-width: 100px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.main-nav-new>li>a {
+    text-transform: uppercase;
+    padding: 12px 15px 13px;
+    font-weight: 700;
+    color: #000;
+    font-size: 13px;
+    display: block;
+}
+
+.inputSearch {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #ddd;
+    padding: 0 30px 0 10px;
+    font-style: initial;
+    font-weight: 600;
+    color: #a9a9a9;
+}
+
+.item-category-home {
+    padding: 0 15px;
+    margin-bottom: 32px;
+}
+
+.box-category {
+    border: 2px solid #ddd;
+}
+
+.section-category-home {
+    margin-top: 40px;
+}
+
+.category-image {
+
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.category-info {
+    flex: 0 0 calc(100% - 90px);
+    max-width: calc(100% - 90px);
+    padding-left: 5px;
+}
+
+.item-category-home .box-category a {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.section-main-product {
+    padding: 15px 0;
+    overflow: hidden;
+}
+
+.main-prd {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 100%;
+    margin-top: 25px;
+}
+
+.product-item .img {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-item {
+    padding: 18px;
+}
+
+.product-item .img {
+    position: relative;
+    overflow: hidden;
+}
+
+.discount-percent {
+    float: left;
+    padding: 5px;
+    font-size: 13px;
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    position: absolute;
+    background: red;
+    top: 0;
+    left: 0;
+    font-weight: 700;
+    width: 38px;
+}
+
+.percent {
+    float: left;
+    padding: 5px;
+    font-size: 13px;
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    position: absolute;
+    background: red;
+    top: 0;
+    left: 0;
+    font-weight: 700;
+    width: 38px;
+
+}
+
+.prices {
+    color: #000;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+footer {
+    background: #f0f0f0;
+}
+
+.footer-block {
+    padding: 25px 0 0;
+}
+
+.footer-shop {
+    padding: 0 15px;
+}
+
+.titleFooter {
+    margin-bottom: 13px;
+}
+
+.listFooter {
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 18px;
+    color: #000;
+    cursor: pointer;
+}
+
+
+/* styles.css */
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    max-width: 300px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 13px;
+}
+
+/* input[type="text"] {
+    flex: 1;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+  }  */
+
+
+button {
+    background-color: #050506;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #cad2da;
+}
+
+.owl-stage-outer {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.owl-stage {
+    transform: translate3d(0px, 0px, 0px);
+    transition: all 0s ease 0s;
+    width: 971px;
+}
+
+.owl-carousel.owl-drag .owl-item {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.owl-item__text {
+    margin: 0;
+    font-weight: 700;
+    color: #7e7e7e;
+    padding: 12px 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    min-width: 100px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.owl-item__text1 span {
+    border-bottom: 3px solid #000;
+    color:#000;
+}
+
+.active-menu-nav-mobile {
+    position: fixed !important;
+    top: 0;
+    transition: transform .5s cubic-bezier(.25, .46, .45, .94);
+    -ms-transform: translateX(0) !important;
+    -webkit-transform: translateX(0) !important;
+    transform: translateX(0) !important;
+    overflow: initial !important;
+    width: 320px;
+    left: 0;
+    background: #fff;
+    z-index: 8888;
+    -ms-transition: transform .5s cubic-bezier(.25, .46, .45, .94);
+    -webkit-transition: transform .5s cubic-bezier(.25, .46, .45, .94);
+    height: 100vh;
+}
+
+.menu-nav-mobile-click-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+}
+
+.sidebar-container {
+    color: #000;
+    padding: 20px;
+}
+
+.text-content-menu {
+    display: block;
+    font-size: small;
+    padding: 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+
+
+@media (min-width: 1023px) {
+
+    /* CSS dành cho màn hình từ 768px đến 1023px */
+    .none-pc {
+        display: none;
+    }
+
+    .block-pc {
+        display: block;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1023px) and (min-width: 768px) {
+
+    /* CSS dành cho màn hình từ 768px đến 1023px */
+    .none-tablet {
+        display: none;
+    }
+
+    .block-tablet {
+        display: block;
+    }
+}
+
+/* Điện thoại di động */
+@media (max-width: 767px) {
+
+    /* CSS dành cho màn hình nhỏ hơn 767px */
+    .none-mb {
+        display: none;
+    }
+
+    .block-mb {
+        display: block;
+    }
+   
+}

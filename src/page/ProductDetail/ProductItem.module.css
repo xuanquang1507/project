@@ -1,0 +1,56 @@
+.cardActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 5px;
+}
+
+.Card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detailButton {
+  background-color: #bc5d5d !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease-in-out !important;
+}
+
+.addToCartButton {
+  background-color: #3fb06e !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease-in-out !important;
+}
+
+.detailButton:hover,
+.addToCartButton:hover {
+  background-color: #12ca24 !important;
+}
+
+.redColor{
+  font-size: 22px !important;
+  color: red !important;
+  margin-top: 10px !important;
+}
+
+@media (min-width: 1023px) {
+
+  /* CSS dành cho màn hình từ 768px đến 1023px */
+  .nonePc {
+      display: none;
+  }
+
+  .blockPc {
+      display: block;
+  }
+}
+

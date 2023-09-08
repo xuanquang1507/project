@@ -12,6 +12,10 @@ const router = createBrowserRouter(
       element: <LoginPage />,
     },
     {
+      path: "/",
+      element: <LoginPage />,
+    },
+    {
       path: "itemproduct",
       element: <ItemProduct />,
     },
@@ -38,9 +42,6 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  {
-    basename: "/quang",
-  }
 );
 
 export default router;
