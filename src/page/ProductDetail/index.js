@@ -15,7 +15,10 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const param = useParams();
   const [product, setProduct] = React.useState({});
-  const [cartItems, setCartItems] = React.useState([]);
+ const getdata= localStorage.getItem("cartItems");
+ const parseData= JSON.parse(getdata)
+  console.log("getdata", parseData);
+  const [cartItems, setCartItems] = React.useState(parseData||[]);
 
   const fetchDetail = async (id) => {
     const response = await ProductApi.getByID(id);
@@ -48,7 +51,7 @@ export default function ProductDetail() {
   const handleAddToCart = () => {
     // Thêm sản phẩm vào danh sách giỏ hàng
     const newCartItems = [...cartItems, product];
-    setCartItems(newCartItems);
+    setCartItems(e=>[...e, product]);
 
     // Lưu danh sách sản phẩm giỏ hàng vào localStorage (nếu bạn muốn lưu trữ giỏ hàng khi làm mới trang)
     localStorage.setItem("cartItems", JSON.stringify(newCartItems));

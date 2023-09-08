@@ -20,10 +20,14 @@ const ProductPage = (props) => {
   });
   const ref = useRef(null);
   const handleSearch = async () => {
-    setPagingData({
-      ...pagingData,
-      currentPage: 0,
-    })
+    if(ref.current.value?.trim()&&pagingData.currentPage !== 0){
+      setPagingData({
+        ...pagingData,
+        currentPage: 0,
+      })
+    }else{
+     await getPagingProduct();
+    }
   };
   const fetchListProduct = async (config = {}) => {
     const response = await ProductApi.getAll(config);
