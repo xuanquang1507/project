@@ -15,8 +15,8 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const param = useParams();
   const [product, setProduct] = React.useState({});
- const getdata= localStorage.getItem("cartItems");
- const parseData= JSON.parse(getdata)
+  const getdata= localStorage.getItem("cartItems");
+  const parseData= JSON.parse(getdata)
   console.log("getdata", parseData);
   const [cartItems, setCartItems] = React.useState(parseData||[]);
 
@@ -44,15 +44,18 @@ export default function ProductDetail() {
 
   const handleNavMobile = () => {
     const nav = document.getElementById("menuNavMobile")
-    console.log("🚀 ~ file: index.js:36 ~ handleNavMobile ~ nav:", nav)
     nav.classList.add("block");
     nav.classList.remove("hidden");
+  }
+
+  const handleProductCart = () => {
+    navigate("/product/cart");
   }
   const handleAddToCart = () => {
     // Thêm sản phẩm vào danh sách giỏ hàng
     const newCartItems = [...cartItems, product];
+    setCartItems(newCartItems);
     setCartItems(e=>[...e, product]);
-
     // Lưu danh sách sản phẩm giỏ hàng vào localStorage (nếu bạn muốn lưu trữ giỏ hàng khi làm mới trang)
     localStorage.setItem("cartItems", JSON.stringify(newCartItems));
 
@@ -90,7 +93,7 @@ export default function ProductDetail() {
               <div className="header-wrap-icon">
                   <SearchIcon className={styles.nonePc}/>
                   <PersonIcon className="mx-3" onClick={handleLogin} />
-                  <ShoppingCartIcon />
+                  <ShoppingCartIcon onClick={handleProductCart}/>
               </div>
             </div>
           </div>
@@ -181,7 +184,7 @@ export default function ProductDetail() {
             </div>
           </div>  
         </div>
-
+        
       </div>
       <div className="container-fluid">
         <div className="row clearfix">

@@ -39,6 +39,10 @@ export default function ShowItem() {
     nav.classList.add("block");
     nav.classList.remove("hidden");
   }
+
+  const handleProductCart = () => {
+    navigate("/product/cart");
+  }
   React.useEffect(() => {
     fetchListProduct();
   }, []);
@@ -73,7 +77,7 @@ export default function ShowItem() {
               <div className="header-wrap-icon">
                   <SearchIcon className={styles.nonePc}/>
                   <PersonIcon className="mx-3" onClick={handleLogin} />
-                  <ShoppingCartIcon />
+                  <ShoppingCartIcon onClick={handleProductCart}/>
               </div>
             </div>
           </div>
@@ -373,6 +377,7 @@ export default function ShowItem() {
             <img
               src="https://pos.nvncdn.net/556e88-134541/bn/20221017_H1V8ft5tHMMRPqWiPJowfRfB.png"
               style={{ width: "100%" }}
+              alt=""
             />
           </div>
         </div>
